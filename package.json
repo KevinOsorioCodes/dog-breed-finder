@@ -6,12 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "jest --watch",
+    "cypress": "cypress open",
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "20.4.8",
-    "@types/react": "18.2.18",
-    "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
@@ -21,5 +20,15 @@
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@testing-library/react": "13.3.0",
+    "@testing-library/user-event": "14.2.0",
+    "@types/node": "20.4.8",
+    "@types/react": "18.2.18",
+    "@types/react-dom": "18.2.7",
+    "cypress": "10.1.0",
+    "jest": "28.1.1",
+    "jest-environment-jsdom": "28.1.1"
   }
 }
