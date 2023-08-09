@@ -19,7 +19,7 @@ const jestConfig = {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',
       {
-        jsx: {
+        jsc: {
           parser: {
             syntax: 'typescript',
             tsx: true,
