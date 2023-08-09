@@ -19,20 +19,14 @@
       "~/tests/*": ["./tests/*"],
       "~/public/*": ["./public/*"]
     },
-    "isolatedModules": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "isolatedModules": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.spec.tsx",
-    "**/*.spec.ts",
-    ".next/types/**/*.ts"
+    "**/*.spec.ts"
   ],
   "exclude": ["node_modules"]
 }

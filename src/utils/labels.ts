@@ -1,3 +1,3 @@
 export const labels = {
-  app_title: "Dog Finder",
+  app_title: 'Dog Finder',
 };
