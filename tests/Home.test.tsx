@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, act, waitFor } from '@testing-library/react'
 import { HomeTemplate } from '~/infrastructure/ui/templates/Home'
 
 describe('HomeTemplate', () => {
@@ -33,16 +33,18 @@ describe('HomeTemplate', () => {
     expect(screen.getByText('SubBreed1')).toBeInTheDocument()
   })
 
-  it('should add selected breed to active filters list when Add Filter button is clicked', () => {
+  it('should add selected breed to active filters list when Add Filter button is clicked', async () => {
     const data = [{ breed: 'Breed1', subBreeds: [] }]
     render(<HomeTemplate data={data} />)
     const breedSelect = screen.getByTestId('breed')
     const addFilterButton = screen.getByText('Add Filter')
-
-    fireEvent.change(breedSelect, { target: { value: 'Breed1' } })
-    fireEvent.click(addFilterButton)
-
-    expect(screen.getByTestId('Breed1-')).toBeInTheDocument()
+    act(() => {
+      fireEvent.change(breedSelect, { target: { value: 'Breed1' } })
+      fireEvent.click(addFilterButton)
+    })
+    waitFor(() => {
+      expect(screen.getByTestId('Breed1-')).toBeInTheDocument()
+    })
   })
 
   it('should remove selected filter from active filters list when x button is clicked', () => {
