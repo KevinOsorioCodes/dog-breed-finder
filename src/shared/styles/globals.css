@@ -25,3 +25,6 @@ body {
       Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     height: 100dvh;
 }
+select.decorated option:hover {
+  box-shadow: 0 0 10px 100px #1882A8 inset;
+}

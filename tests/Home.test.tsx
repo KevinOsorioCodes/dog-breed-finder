@@ -1,36 +1,80 @@
-import Home from '~/pages'
-import { render } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { HomeTemplate } from '~/infrastructure/ui/templates/Home'
 
-describe('Home', () => {
-  it('should render the main component without errors', () => {
-    render(<Home />)
+describe('code snippet', () => {
+  it('should add selected breed to active filters list when Add Filter button is clicked', () => {
+    render(<HomeTemplate data={[{ breed: 'Breed1', subBreeds: [] }]} />)
+    const breedSelect = screen.getByTestId('breed')
+    const addFilterButton = screen.getByText('Add Filter')
+
+    fireEvent.change(breedSelect, { target: { value: 'Breed1' } })
+    fireEvent.click(addFilterButton)
+
+    expect(screen.getByTestId('Breed1-')).toBeInTheDocument()
   })
 
-  it('should display the welcome message', () => {
-    const { getByText } = render(<Home />)
-    expect(getByText('Welcome to Dog Finder App')).toBeInTheDocument()
-  })
-
-  it('should have the flex class', () => {
-    const { container } = render(<Home />)
-    expect(container.firstChild).toHaveClass('flex')
-  })
-
-  it('should have the correct class', () => {
-    const { container } = render(<Home />)
-    expect(container.firstChild).toHaveClass(
-      ' w-full flex flex-col md:flex-row justify-center items-center md:justify-start md:items-center gap-2'
+  it('should add selected sub-breed to active filters list when Add Filter button is clicked', () => {
+    render(
+      <HomeTemplate data={[{ breed: 'Breed1', subBreeds: ['SubBreed1'] }]} />
     )
+    const breedSelect = screen.getByTestId('breed')
+    const addFilterButton = screen.getByText('Add Filter')
+
+    fireEvent.change(breedSelect, { target: { value: 'Breed1' } })
+    const subBreedSelect = screen.getByTestId('subBreed')
+    fireEvent.change(subBreedSelect, { target: { value: 'SubBreed1' } })
+    fireEvent.click(addFilterButton)
+
+    expect(screen.getByText('Breed1-SubBreed1')).toBeInTheDocument()
   })
 
-  it('should have the flex-col class', () => {
-    const { container } = render(<Home />)
-    expect(container.firstChild).toHaveClass('flex-col')
+  it('should remove selected filter from active filters list when x button is clicked', () => {
+    render(<HomeTemplate data={[{ breed: 'Breed1', subBreeds: [] }]} />)
+    const breedSelect = screen.getByTestId('breed')
+    const addFilterButton = screen.getByText('Add Filter')
+
+    fireEvent.change(breedSelect, { target: { value: 'Breed1' } })
+    fireEvent.click(addFilterButton)
+    const removeFilterButton = screen.getByTestId('x-0')
+    const activeFilterElement = screen.getByTestId('Breed1-')
+    expect(activeFilterElement).toBeInTheDocument()
+    fireEvent.click(removeFilterButton)
+
+    expect(activeFilterElement).not.toBeInTheDocument()
   })
 
-  it('should have the items-center and justify-center classes', () => {
-    const { container } = render(<Home />)
-    expect(container.firstChild).toHaveClass('items-center')
-    expect(container.firstChild).toHaveClass('justify-center')
+  it('should not display sub-breed dropdown menu when breed has no sub-breeds available', () => {
+    render(<HomeTemplate data={[{ breed: 'Breed1', subBreeds: [] }]} />)
+    const breedSelect = screen.getByTestId('breed')
+
+    fireEvent.change(breedSelect, { target: { value: 'Breed1' } })
+
+    expect(screen.queryByTestId('subBreed')).not.toBeInTheDocument()
+  })
+
+  it('should display sub-breed dropdown menu when breed has sub-breeds available', () => {
+    render(
+      <HomeTemplate data={[{ breed: 'Breed1', subBreeds: ['SubBreed1'] }]} />
+    )
+    const breedSelect = screen.getByTestId('breed')
+
+    fireEvent.change(breedSelect, { target: { value: 'Breed1' } })
+
+    expect(screen.getByTestId('subBreed')).toBeInTheDocument()
+  })
+
+  it('should not add filter to active filters list when sub-breed is selected but no breed is selected', () => {
+    render(
+      <HomeTemplate data={[{ breed: 'Breed1', subBreeds: ['SubBreed1'] }]} />
+    )
+    const breedSelect = screen.getByTestId('breed')
+
+    fireEvent.change(breedSelect, { target: { value: 'Breed1' } })
+    const subBreedSelect = screen.getByTestId('subBreed')
+    fireEvent.change(subBreedSelect, { target: { value: 'SubBreed1' } })
+    const addFilterButton = screen.getByText('Add Filter')
+    fireEvent.click(addFilterButton)
+
+    expect(screen.queryByText('SubBreed1')).not.toBeInTheDocument()
   })
 })
