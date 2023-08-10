@@ -25,8 +25,8 @@ export const Gallery: FunctionComponent<IGalleryProps> = ({
               (item.startsWith('https') || item.startsWith('/')) && (
                 <div
                   data-testid={`image-${title}-index`}
-                  key={item}
-                  className="shadow-[4px_6px_12px_4px_rgba(0,_0,_0,_0.25)] overflow-hidden bg-white flex flex-col w-52 h-52 items-center py-1 px-1"
+                  key={index}
+                  className="shadow-[4px_6px_12px_4px_rgba(0,_0,_0,_0.25)] overflow-hidden bg-white flex flex-col w-auto h-auto items-center py-1 px-1"
                 >
                   <Image
                     className="object-cover  w-52 h-52"

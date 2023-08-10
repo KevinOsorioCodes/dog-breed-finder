@@ -1,23 +1,30 @@
 import { NextPage, GetStaticProps } from 'next'
-import { Breed } from '~/domain/entities'
-import { InfoFactory } from '~/infrastructure/factories/breed-factory'
+import { Breed, BreedImages } from '~/domain/entities'
+import { BreedFactory } from '~/infrastructure/factories/breed-factory'
+import { BreedImageFactory } from '~/infrastructure/factories/breed-image-factory'
 import { HomeTemplate } from '~/infrastructure/ui/templates/Home'
-
-const Home: NextPage<{ data?: Breed[] }> = ({ data }) => {
-  return <HomeTemplate data={data} />
+interface IHomeProps {
+  data?: Breed[]
+  images?: BreedImages
+}
+const Home: NextPage<IHomeProps> = ({ data, images }) => {
+  return <HomeTemplate data={data} defaultImages={images} />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const breedFactory = InfoFactory()
+  const breedFactory = BreedFactory()
+  const breedImageFactory = BreedImageFactory()
   const result = await breedFactory.handle()
+  const imagesResult = await breedImageFactory.handleAll()
 
-  if (result.isLeft()) {
+  if (result.isLeft() || imagesResult.isLeft()) {
     return { notFound: true }
   }
 
   return {
     props: {
       data: result.value,
+      images: imagesResult.value,
     },
   }
 }

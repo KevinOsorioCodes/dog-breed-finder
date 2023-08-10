@@ -10,8 +10,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Fragment>
       <Head>
         <title>{labels.app_title}</title>
-        <link rel="shortcut icon" href="/img-512.png" />
-        <link rel="apple-touch-icon" href="/img-512.png" />
       </Head>
       <div className="flex flex-col">
         <Header />

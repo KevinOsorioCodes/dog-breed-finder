@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { Breed } from '~/domain/entities'
 import { BreedStorage } from '~/infrastructure/services'
 
 describe('BreedStorage', () => {
