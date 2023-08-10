@@ -7,6 +7,7 @@ interface IHomeProps {
   data?: Breed[]
   images?: BreedImages
 }
+
 const Home: NextPage<IHomeProps> = ({ data, images }) => {
   return <HomeTemplate data={data} defaultImages={images} />
 }

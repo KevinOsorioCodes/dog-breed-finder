@@ -5,6 +5,9 @@ const jestConfig = {
     '!<rootDir>/src/main/**/*',
     '!<rootDir>/src/**/index.ts',
     '!**/*.d.ts',
+    '!<rootDir>/src/domain/entities/*.ts',
+    '!<rootDir>/src/domain/usecases/*.ts',
+    '!<rootDir>/src/application/protocols/services/*.ts',
   ],
   clearMocks: true,
   coverageProvider: 'v8',
@@ -44,6 +47,6 @@ const jestConfig = {
       },
     ],
   },
-};
+}
 
-export default jestConfig;
+export default jestConfig
