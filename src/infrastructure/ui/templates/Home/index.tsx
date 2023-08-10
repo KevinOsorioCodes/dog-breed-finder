@@ -3,10 +3,24 @@ import { Breed, BreedTransferDTO } from '~/domain/entities'
 import BreedFilter from '../../components/BreedFilter'
 import { labels } from '~/shared/labels/labels'
 import ActiveFilters from '../../components/ActiveFilter'
+import { Gallery } from '../../components/Gallery'
 
 export interface IHomeTemplateProps {
   data?: Array<Breed>
 }
+
+const images = [
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg',
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_10263.jpg',
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_10715.jpg',
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_10822.jpg',
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_1128.jpg',
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_1145.jpg',
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_115.jpg',
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_1150.jpg',
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_11570.jpg',
+  'https://images.dog.ceo/breeds/hound-afghan/n02088094_11584.jpg',
+]
 
 export const HomeTemplate: FunctionComponent<IHomeTemplateProps> = ({
   data,
@@ -98,8 +112,8 @@ export const HomeTemplate: FunctionComponent<IHomeTemplateProps> = ({
           handleRemoveFilter={handleDeleteBreed}
         />
       </div>
-      <main className="flex min-h-full items-start justify-start gap-4 ">
-        <h1>Welcome to Dog Finder App</h1>
+      <main className="flex min-h-full items-start justify-start gap-4 m-3">
+        <Gallery title="Breed" images={images} />
       </main>
     </>
   )

@@ -6,11 +6,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'file.rendit.io',
+        hostname: 'images.dog.ceo',
         port: '',
-        pathname: '/n/**',
+        pathname: '/breeds/**/**',
       },
     ],
   },
-};
-module.exports = nextConfig;
+}
+module.exports = nextConfig
