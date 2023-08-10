@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test:dev": "jest --watch",
-    "test": "jest --watch",
+    "test": "jest ",
     "test:cov": "jest --coverage",
     "cypress": "cypress open",
     "lint": "eslint ./src/**/*.{ts,tsx} --max-warnings=0",
