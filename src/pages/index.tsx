@@ -1,4 +1,4 @@
-import { NextPage, GetStaticProps } from 'next'
+import { NextPage, GetServerSideProps } from 'next'
 import { Breed, BreedImages } from '~/domain/entities'
 import { BreedFactory } from '~/infrastructure/factories/breed-factory'
 import { BreedImageFactory } from '~/infrastructure/factories/breed-image-factory'
@@ -12,7 +12,7 @@ const Home: NextPage<IHomeProps> = ({ data, images }) => {
   return <HomeTemplate data={data} defaultImages={images} />
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const breedFactory = BreedFactory()
   const breedImageFactory = BreedImageFactory()
   const result = await breedFactory.handle()
