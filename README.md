@@ -12,7 +12,9 @@ Al realizar un filtro se desplegara un listado de galerias con las imagenes de l
 
 ![image](https://github.com/KevinOsorioCodes/dog-breed-finder/assets/106363544/4c015297-5e25-459d-a6f2-bcd92241caaa)
 
-## [Desplegado en Vercel]([URL del enlace](https://dog-breed-finder-41n66aaa7-kevinosoriocodes.vercel.app/))
+## Desplegado en Vercel
+
+[Haz Click Aqui]([URL del enlace](https://dog-breed-finder-41n66aaa7-kevinosoriocodes.vercel.app/))
 
 ## Características
 
