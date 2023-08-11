@@ -5,8 +5,12 @@ const jestConfig = {
     '!<rootDir>/src/main/**/*',
     '!<rootDir>/src/**/index.ts',
     '!**/*.d.ts',
+    '!<rootDir>/src/domain/entities/*.ts',
+    '!<rootDir>/src/domain/usecases/*.ts',
+    '!<rootDir>/src/application/protocols/services/*.ts',
   ],
   clearMocks: true,
+  coverageReporters: ['json-summary'],
   coverageProvider: 'v8',
   setupFilesAfterEnv: ['<rootDir>/src/shared/settings/jest-setup.ts'],
   testEnvironment: 'jsdom',
@@ -44,6 +48,6 @@ const jestConfig = {
       },
     ],
   },
-};
+}
 
-export default jestConfig;
+export default jestConfig

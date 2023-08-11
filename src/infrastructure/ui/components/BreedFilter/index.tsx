@@ -14,7 +14,7 @@ const BreedFilter: FunctionComponent<IBreedFilterProps> = ({
   handleFilterChange,
 }) => {
   return (
-    <div className="w-40 mb-4">
+    <div className="w-40 ">
       <label className="block text-gray-700 text-sm font-bold mb-2">
         {title}
       </label>

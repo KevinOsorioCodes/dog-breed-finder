@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dog Breed Finder
 
-## Getting Started
+Dog Breed Finder es un buscador de razas de perros en base a filtros de raza y sub raza. 
+Al realizar un filtro se desplegara un listado de galerias con las imagenes de las razas seleccionadas.
 
-First, run the development server:
+![Statements](https://img.shields.io/badge/statements-86.27%25-yellow.svg?style=flat)
+![Branches](https://img.shields.io/badge/branches-87.87%25-yellow.svg?style=flat)
+![Functions](https://img.shields.io/badge/functions-91.66%25-brightgreen.svg?style=flat)
+![Lines](https://img.shields.io/badge/lines-86.27%25-yellow.svg?style=flat)
+
+## Captura de Pantalla / Demo
+
+
+## Características
+
+
+- Filtro por raza
+- Filtro por sub-raza
+- Galerias de imagenes
+- NextJS
+- Server Side Rendering
+
+## Instalación
+
+Proporciona instrucciones claras sobre cómo instalar y configurar tu proyecto.
+### NPM
+```bash
+npm install
+npm run dev
+```
+### YARN
 
 ```bash
-npm run dev
-# or
+yarn
 yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+La pagina quedara activa en localhost:3000 en su navegador de preferencia

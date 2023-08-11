@@ -1,10 +1,10 @@
 import { BreedUseCase } from '~/application/usecases'
-import { InfoFactory } from '~/infrastructure/factories/breed-factory'
+import { BreedFactory } from '~/infrastructure/factories/breed-factory'
 import { left, right } from '~/shared/either'
 
-describe('InfoFactory', () => {
+describe('BreedFactory', () => {
   it('should return an instance of BreedUseCase', () => {
-    const breedUseCase = InfoFactory()
+    const breedUseCase = BreedFactory()
     expect(breedUseCase).toBeInstanceOf(BreedUseCase)
   })
 
