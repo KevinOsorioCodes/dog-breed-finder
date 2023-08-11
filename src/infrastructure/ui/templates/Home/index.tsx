@@ -46,19 +46,13 @@ export const HomeTemplate: FunctionComponent<IHomeTemplateProps> = ({
   }
 
   const fetchBreedsImages = async (breedImage: BreedTransferDTO) => {
-    try {
-      const { breed, subBreed } = breedImage
-      const res = subBreed
-        ? await breedImageFactory.handleBySubBreed(breed, subBreed)
-        : await breedImageFactory.handleByBreed(breed)
+    const { breed, subBreed } = breedImage
+    const res = subBreed
+      ? await breedImageFactory.handleBySubBreed(breed, subBreed)
+      : await breedImageFactory.handleByBreed(breed)
 
-      if (res.isLeft()) {
-        throw res.value
-      }
-
+    if (res.isRight()) {
       setGalleries((prevState) => [...prevState, res.value])
-    } catch (error) {
-      console.error(error)
     }
   }
   const handleFilterChange = () => {

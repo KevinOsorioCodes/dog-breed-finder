@@ -10,6 +10,7 @@ const jestConfig = {
     '!<rootDir>/src/application/protocols/services/*.ts',
   ],
   clearMocks: true,
+  coverageReporters: ['json-summary'],
   coverageProvider: 'v8',
   setupFilesAfterEnv: ['<rootDir>/src/shared/settings/jest-setup.ts'],
   testEnvironment: 'jsdom',
