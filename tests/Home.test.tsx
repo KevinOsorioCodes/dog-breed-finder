@@ -1,4 +1,5 @@
 import { render, screen, fireEvent, act, waitFor } from '@testing-library/react'
+import axios from 'axios'
 import { HomeTemplate } from '~/infrastructure/ui/templates/Home'
 
 describe('HomeTemplate', () => {
@@ -7,6 +8,10 @@ describe('HomeTemplate', () => {
       { breed: 'Breed1', subBreeds: [] },
       { breed: 'Breed2', subBreeds: ['SubBreed1'] },
     ]
+    const breed = 'hound'
+    const expectedImages = ['image1', 'image2']
+    const axiosResponse = { data: { message: expectedImages } }
+    jest.spyOn(axios, 'get').mockResolvedValueOnce(axiosResponse)
     render(<HomeTemplate data={data} />)
 
     const breedSelect = screen.getByTestId('breed')
@@ -23,6 +28,10 @@ describe('HomeTemplate', () => {
       { breed: 'Breed1', subBreeds: [] },
       { breed: 'Breed2', subBreeds: ['SubBreed1'] },
     ]
+    const breed = 'hound'
+    const expectedImages = ['image1', 'image2']
+    const axiosResponse = { data: { message: expectedImages } }
+    jest.spyOn(axios, 'get').mockResolvedValueOnce(axiosResponse)
     render(<HomeTemplate data={data} />)
 
     const breedSelect = screen.getByTestId('breed')
@@ -35,6 +44,10 @@ describe('HomeTemplate', () => {
 
   it('should add selected breed to active filters list when Add Filter button is clicked', async () => {
     const data = [{ breed: 'Breed1', subBreeds: [] }]
+    const breed = 'hound'
+    const expectedImages = ['image1', 'image2']
+    const axiosResponse = { data: { message: expectedImages } }
+    jest.spyOn(axios, 'get').mockResolvedValueOnce(axiosResponse)
     render(<HomeTemplate data={data} />)
     const breedSelect = screen.getByTestId('breed')
     const addFilterButton = screen.getByText('Add Filter')
@@ -49,6 +62,10 @@ describe('HomeTemplate', () => {
 
   it('should remove selected filter from active filters list when x button is clicked', () => {
     const data = [{ breed: 'Breed1', subBreeds: [] }]
+    const breed = 'hound'
+    const expectedImages = ['image1', 'image2']
+    const axiosResponse = { data: { message: expectedImages } }
+    jest.spyOn(axios, 'get').mockResolvedValueOnce(axiosResponse)
     render(<HomeTemplate data={data} />)
     const breedSelect = screen.getByTestId('breed')
     const addFilterButton = screen.getByText('Add Filter')
@@ -65,6 +82,10 @@ describe('HomeTemplate', () => {
 
   it('should set breeds state when data is passed as prop', () => {
     const data = [{ breed: 'Breed1', subBreeds: [] }]
+    const breed = 'hound'
+    const expectedImages = ['image1', 'image2']
+    const axiosResponse = { data: { message: expectedImages } }
+    jest.spyOn(axios, 'get').mockResolvedValueOnce(axiosResponse)
     render(<HomeTemplate data={data} />)
     expect(screen.getByText('Breed1')).toBeInTheDocument()
   })
