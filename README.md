@@ -14,7 +14,7 @@ Al realizar un filtro se desplegara un listado de galerias con las imagenes de l
 
 ## Desplegado en Vercel
 
-[Haz Click Aqui]([URL del enlace](https://dog-breed-finder-41n66aaa7-kevinosoriocodes.vercel.app/))
+[Visitar la aplicación de búsqueda de razas de perros](https://dog-breed-finder-41n66aaa7-kevinosoriocodes.vercel.app/)
 
 ## Características
 
