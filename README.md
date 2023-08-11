@@ -26,8 +26,6 @@ Al realizar un filtro se desplegara un listado de galerias con las imagenes de l
 - Server Side Rendering
 
 ## Instalación
-
-Proporciona instrucciones claras sobre cómo instalar y configurar tu proyecto.
 ### NPM
 ```bash
 npm install
